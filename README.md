@@ -1,1 +1,3 @@
-# sudokuMain
+# SudokuSolver
+written on Python3
+
