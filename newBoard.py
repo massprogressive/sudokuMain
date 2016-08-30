@@ -68,9 +68,8 @@ class Board:
         for row in self.board:
             if not duplicates(delete_zeros(row)):
                 return False
-        for col in range(self.num_blocks):
-            col_numbers = delete_zeros([self.board[_row][col] for _row in range(self.num_blocks)])
-            if not duplicates(col_numbers):
+        for column in zip(*self.board):
+            if not duplicates(column):
                 return False
         return True
 
