@@ -7,24 +7,23 @@ class Board:
     Board is a class allows you set specified board, get
     information and manipulate board.
     """
-    def __init__(self, makeBoard=False, makeMoves=False):
+    def __init__(self, board=None):
         """
-        Creates board class with class with board
-        fulfilled zeros.
+        Initializes board with passed initial or creates one
+        filled with zeros.
+        :param board: initial board
         """
         self.numbers = NUMBERS
         self.block_height = BLOCK_HEIGHT
         self.block_width = BLOCK_WIDTH
         self.num_blocks = NUM_BLOCKS
-        self.board = None
-        if makeBoard:
-            self.make_board()
+        self.board = board or self.make_board()
 
     def make_board(self):
         """
-        Creates board fulfilled zeros.
+        Creates board filled zeros.
         """
-        self.board = [[0 for x in range(9)] for y in range(9)]
+        return [[0] * self.num_blocks for y in range(self.num_blocks)]
 
     def get_move(self):
         """
@@ -50,7 +49,7 @@ class Board:
 
     def check_position(self, row, col):
         """
-        Cheks specified position on board.
+        Checks specified position on board.
         :param row: board row
         :param col: board column
         :return: True if all conditions satisfied, otherwise - False
@@ -88,19 +87,18 @@ class Board:
             string += '\n'
         return string
 
-
-def make_move(board_inst):
-    if board_inst.get_move() is None:
-        if board_inst.check_all():
-            print('Solved board')
-            print()
-            print(board_inst)
-            return board_inst
-    else:
-        row, col = board_inst.get_move()
-        numbers = board_inst.get_numbers(row, col)
-        for number in numbers:
-            board_inst.board[row][col] = number
-            if board_inst.check_position(row, col):
-                make_move(board_inst)
-        board_inst.board[row][col] = 0
+    def make_move(self):
+        if self.get_move() is None:
+            if self.check_all():
+                print('Solved board')
+                print()
+                print(self)
+                return self
+        else:
+            row, col = self.get_move()
+            numbers = self.get_numbers(row, col)
+            for number in numbers:
+                self.board[row][col] = number
+                if self.check_position(row, col):
+                    self.make_move()
+            self.board[row][col] = 0
