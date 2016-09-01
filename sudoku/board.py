@@ -1,5 +1,5 @@
-from functions import *
-from global_variables import *
+from .functions import *
+from .global_variables import *
 
 
 class Board:

@@ -1,6 +1,7 @@
-from board import Board
-from board import make_move
-from functions import *
+#!/usr/bin/env python3
+from sudoku.board import Board, make_move
+
+
 BOARD = [
     [0, 4, 0, 3, 0, 8, 0, 2, 0],
     [0, 5, 0, 9, 6, 2, 0, 7, 0],
