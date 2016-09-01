@@ -1,4 +1,4 @@
-from newFunctions import *
+from functions import *
 from global_variables import *
 
 

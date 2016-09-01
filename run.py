@@ -1,6 +1,6 @@
-from newBoard import Board
-from newBoard import make_move
-from newFunctions import *
+from board import Board
+from board import make_move
+from functions import *
 BOARD = [
     [0, 4, 0, 3, 0, 8, 0, 2, 0],
     [0, 5, 0, 9, 6, 2, 0, 7, 0],
