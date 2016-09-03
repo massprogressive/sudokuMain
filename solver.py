@@ -6,8 +6,8 @@ from sudoku.functions import *
 from sudoku.Solver import *
 
 @click.command()
-@click.option('--path', default='',
-            help='Path to file'
+@click.option('--path', default='board_easy.txt',
+            help='Path to text file with board inside'
 )
 
 def cli(path):

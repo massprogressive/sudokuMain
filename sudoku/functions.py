@@ -66,15 +66,16 @@ def read_file(file_name):
     with open(file_name, 'r') as _file:
         for line in _file:
             row = []
-            for element in re.findall('([0-9]+)', line)[0]:
+            for element in line.strip():
                 row.append(int(element))
-                if len(row) != 9:
-                    return False
-                data.append(row)
+            if len(row) != 9:
+                return False
+            data.append(row)
     return data
 
 def run(cls, file_name):
     board = read_file(file_name)
+    print(board)
     solver = cls(board)
     solved_board = solver.make_move()
     return solved_board
