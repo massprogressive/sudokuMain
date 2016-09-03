@@ -13,6 +13,11 @@ from sudoku.Solver import *
 def cli(path):
     if os.path.isfile(path):
         solution = run(Solver, path)
-        click.echo(solution)
+        # click.echo('Initial board')
+        # click.echo(solution[0])
+        click.echo(solution[1])
     else:
         click.echo('Nothing to solve')
+
+if __name__ == '__main__':
+    run(Solver, 'board_easy.txt')

@@ -75,7 +75,9 @@ def read_file(file_name):
 
 def run(cls, file_name):
     board = read_file(file_name)
-    print(board)
     solver = cls(board)
+    print('Initial board')
+    print()
+    print(solver)
     solved_board = solver.make_move()
-    return solved_board
+    return board, solved_board
