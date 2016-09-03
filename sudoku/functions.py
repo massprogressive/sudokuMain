@@ -96,4 +96,3 @@ def ninth_test(inst):
     inst.horizontal_lines()
     inst.vertical_lines()
     return inst
-

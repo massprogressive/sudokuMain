@@ -1,6 +1,7 @@
-from newBoard import Board
-from newBoard import make_move
-from newFunctions import *
+#!/usr/bin/env python3
+from sudoku.board import Board
+
+
 BOARD = [
     [0, 4, 0, 3, 0, 8, 0, 2, 0],
     [0, 5, 0, 9, 6, 2, 0, 7, 0],
@@ -46,17 +47,16 @@ BOARD_INSANE = [
 ]
 
 
-board = Board()
-board.board = BOARD
+board = Board(BOARD)
 print()
 print('Initial board')
 print()
 print(board)
-make_move(board)
+board.make_move()
 
-board.board = BOARD_INSANE
+board = Board(BOARD_INSANE)
 print()
 print('Initial board')
 print()
 print(board)
-make_move(board)
+board.make_move()
