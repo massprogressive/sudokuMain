@@ -2,7 +2,7 @@ from .functions import *
 from .global_variables import *
 
 
-class Board:
+class Solver:
     """
     Board is a class allows you set specified board, get
     information and manipulate board.
@@ -90,8 +90,6 @@ class Board:
     def make_move(self):
         if self.get_move() is None:
             if self.check_all():
-                print('Solved board')
-                print()
                 print(self)
                 return self
         else:

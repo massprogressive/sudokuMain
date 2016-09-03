@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-from sudoku.board import Board
+from sudoku.Solver import *
 
 
 BOARD = [
@@ -47,16 +47,16 @@ BOARD_INSANE = [
 ]
 
 
-board = Board(BOARD)
+solver = Solver(BOARD)
 print()
 print('Initial board')
 print()
-print(board)
-board.make_move()
+print(solver)
+solver.make_move()
 
-board = Board(BOARD_INSANE)
-print()
-print('Initial board')
-print()
-print(board)
-board.make_move()
+# board = Board(BOARD_INSANE)
+# print()
+# print('Initial board')
+# print()
+# print(board)
+# board.make_move()

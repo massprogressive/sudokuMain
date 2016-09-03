@@ -47,6 +47,9 @@ def duplicates(lst):
 
 
 def delete_zeros(lst):
+    """
+    Remove 0 from list of integers.
+    """
     _lst = []
     for element in lst:
         if element != 0:
@@ -54,45 +57,24 @@ def delete_zeros(lst):
     return _lst
 
 
-def last_digit_in_column(lines):
-    possible_moves = []
-    for line in lines:
-        if len(set(delete_zeros(line))) == 8:
-            number = list(range(1, 10))
-            for element in delete_zeros((list(line))):
-                if element in number:
-                    number.pop(number.index(element))
-            if len(number) == 1:
-                number = number[0]
-                y = line.index(0)
-                x = lines.index(line)
-                block = int(x / 3) + int(y / 3) * 3
-                possible_moves.append((number, block, y % 3, x % 3))
-    return possible_moves
+def read_file(file_name):
+    """
+    Get board from file.
+    """
+    import re
+    data = []
+    with open(file_name, 'r') as _file:
+        for line in _file:
+            row = []
+            for element in re.findall('([0-9]+)', line)[0]:
+                row.append(int(element))
+                if len(row) != 9:
+                    return False
+                data.append(row)
+    return data
 
-
-def last_digit_in_row(lines):
-    possible_moves = []
-    for line in lines:
-        if len(delete_zeros(list(line))) == 8:
-            number = list(range(1, 10))
-            for element in delete_zeros(list(line)):
-                if element in number:
-                    number.pop(number.index(element))
-            if len(number) == 1:
-                number = number[0]
-                y = lines.index(line)
-                x = line.index(0)
-                block = int(lines.index(line) / 3) * 3 + int(line.index(0) / 3)
-                possible_moves.append((number, block, y % 3, x % 3))
-    return possible_moves
-
-
-def ninth_test(inst):
-    from_horizontal = last_digit_in_row(inst.horizontal)
-    from_vertical = last_digit_in_column(inst.vertical)
-    for move in from_horizontal + from_vertical:
-        inst.set_number(move[0], move[1], move[2], move[3])
-    inst.horizontal_lines()
-    inst.vertical_lines()
-    return inst
+def run(cls, file_name):
+    board = read_file(file_name)
+    solver = cls(board)
+    solved_board = solver.make_move()
+    return solved_board
