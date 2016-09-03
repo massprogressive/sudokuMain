@@ -90,6 +90,8 @@ class Solver:
     def make_move(self):
         if self.get_move() is None:
             if self.check_all():
+                print('Solved board')
+                print()
                 print(self)
                 return self
         else:
