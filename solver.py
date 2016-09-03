@@ -7,17 +7,26 @@ from sudoku.Solver import *
 
 @click.command()
 @click.option('--path', default='board_easy.txt',
-            help='Path to text file with board inside'
+            help='''Path to text file with board inside.
+            Board in the file should looks like default
+            example in board_easy.txt
+            '''
 )
 
 def cli(path):
+    """
+    This programs allows you to solve any sudoku puzzle, if it's possible to
+    solve.
+    """
     if os.path.isfile(path):
         solution = run(Solver, path)
-        # click.echo('Initial board')
-        # click.echo(solution[0])
-        click.echo(solution[1])
+        click.echo(solution)
     else:
         click.echo('Nothing to solve')
 
 if __name__ == '__main__':
-    run(Solver, 'board_easy.txt')
+    path = input('Path to file: ')
+    if os.path.isfile(path):
+        run(Solver, path)
+    else:
+        run(Solver, os.path.abspath('board_easy.txt'))

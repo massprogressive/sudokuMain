@@ -80,4 +80,4 @@ def run(cls, file_name):
     print()
     print(solver)
     solved_board = solver.make_move()
-    return board, solved_board
+    return solved_board
