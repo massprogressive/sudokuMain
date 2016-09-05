@@ -1,5 +1,14 @@
-from .functions import *
-from .global_variables import *
+from .functions import (
+    block_numbers,
+    delete_zeros,
+    duplicates,
+)
+from .global_variables import (
+    BLOCK_HEIGHT,
+    BLOCK_WIDTH,
+    NUMBERS,
+    NUM_BLOCKS,
+)
 
 
 class Solver:

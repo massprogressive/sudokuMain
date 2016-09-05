@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
-import click
-import sys
 import os
-from sudoku.functions import *
-from sudoku.Solver import *
+
+import click
+
+from sudoku.Solver import Solver
+from sudoku.functions import run
+
 
 @click.command()
 @click.option('--path', default='sudoku/boards/easy_01.txt',
