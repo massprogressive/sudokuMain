@@ -1,6 +1,0 @@
-$ git clone repository
-$ virtualenv venv
-$ . venv/bin/activated
-$ pip install --editable .
-
-All is ready to launch 'solver' command in a shell
