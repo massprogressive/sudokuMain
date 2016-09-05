@@ -1,34 +1,19 @@
 #!/usr/bin/env python3
-import os
-
 import click
 
-from sudoku.Solver import Solver
-from sudoku.functions import run
+from .Solver import Solver
+from .functions import run
 
 
 @click.command()
-@click.option('--path', default='sudoku/boards/easy_01.txt',
-            help='''Path to text file with board inside.
-            Board in the file should looks like default
-            example in board_easy.txt
-            '''
+@click.argument(
+    'input_file',
+    type=click.File('r'),
 )
-
 def cli(path):
     """
-    This programs allows you to solve any sudoku puzzle, if it's possible to
-    solve.
+    This programs allows you to solve any sudoku puzzle,
+    if it's possible to solve.
     """
-    if os.path.isfile(path):
-        solution = run(Solver, path)
-        click.echo(solution)
-    else:
-        click.echo('Nothing to solve')
-
-if __name__ == '__main__':
-    path = input('Path to file: ')
-    if os.path.isfile(path):
-        run(Solver, path)
-    else:
-        run(Solver, os.path.abspath('/sudoku/boards/easy_01.txt'))
+    solution = run(Solver, path)
+    click.echo(solution)

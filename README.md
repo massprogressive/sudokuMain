@@ -1,14 +1,28 @@
 # SudokuSolver
-written on Python3
 
-SudokuSolver use backtraking algorithm.
+A Python 3 sudoku solver using backtracking algorithm.
 
-Installation steps:
+## Installation & Usage
 
-$ git clone repository
+To install latest version of SudokuSolver, run this in your terminal
 
-$ virtualenv venv
+```bash
+pip install git+https://github.com/massprogressive/sudokuMain.git@dev
+```
 
-$ . venv/bin/activated
+After this you should be able to run
 
-$ pip install --editable .
+```bash
+sudoku /path/to/board.txt
+```
+
+## Development
+
+To start a development environment, clone this repository to a folder on 
+your machine. Then open that folder in terminal and run:
+
+```bash
+virtualenv venv
+. venv/bin/activate
+pip install --editable .
+```
