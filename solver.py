@@ -6,7 +6,7 @@ from sudoku.functions import *
 from sudoku.Solver import *
 
 @click.command()
-@click.option('--path', default='board_easy.txt',
+@click.option('--path', default='sudoku/boards/easy_01.txt',
             help='''Path to text file with board inside.
             Board in the file should looks like default
             example in board_easy.txt
@@ -29,4 +29,4 @@ if __name__ == '__main__':
     if os.path.isfile(path):
         run(Solver, path)
     else:
-        run(Solver, os.path.abspath('board_easy.txt'))
+        run(Solver, os.path.abspath('/sudoku/boards/easy_01.txt'))

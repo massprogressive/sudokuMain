@@ -68,17 +68,13 @@ def read_file(file_name):
             row = fa('[0-9]', line)
             row = [int(digit) for digit in row]
             if len(row) == 9:
-                print(row)
                 data.append(row)
-            print(len(data))
     return data
 
 def run(cls, file_name):
     board = read_file(file_name)
-    print(len(board))
-    for line in board:
-        print(line)
     solver = cls(board)
+    print()
     print('Initial board')
     print()
     print(solver)
