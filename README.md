@@ -3,6 +3,12 @@ written on Python3
 
 SudokuSolver use backtraking algorithm.
 
-File run.py have two examples of sudoku board: easy and insane level.
+Installation steps:
 
-Command 'python3 run.py' runs the program.
+$ git clone repository
+
+$ virtualenv venv
+
+$ . venv/bin/activated
+
+$ pip install --editable .
