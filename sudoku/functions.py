@@ -61,20 +61,23 @@ def read_file(file_name):
     """
     Get board from file.
     """
-    import re
+    from re import findall as fa
     data = []
-    with open(file_name, 'r') as _file:
-        for line in _file:
-            row = []
-            for element in line.strip():
-                row.append(int(element))
-            if len(row) != 9:
-                return False
-            data.append(row)
+    with open(file_name, 'r') as f:
+        for line in f:
+            row = fa('[0-9]', line)
+            row = [int(digit) for digit in row]
+            if len(row) == 9:
+                print(row)
+                data.append(row)
+            print(len(data))
     return data
 
 def run(cls, file_name):
     board = read_file(file_name)
+    print(len(board))
+    for line in board:
+        print(line)
     solver = cls(board)
     print('Initial board')
     print()
