@@ -10,10 +10,10 @@ from .functions import run
     'input_file',
     type=click.File('r'),
 )
-def cli(path):
+def cli(input_file):
     """
     This programs allows you to solve any sudoku puzzle,
     if it's possible to solve.
     """
-    solution = run(Solver, path)
+    solution = run(Solver, input_file)
     click.echo(solution)
