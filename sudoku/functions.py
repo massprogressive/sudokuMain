@@ -63,13 +63,15 @@ def read_file(file_name):
     """
     from re import findall as fa
     data = []
-    with open(file_name, 'r') as f:
-        for line in f:
-            row = fa('[0-9]', line)
-            row = [int(digit) for digit in row]
-            if len(row) == 9:
-                data.append(row)
-    return data
+    # with open(file_name, 'r') as f:
+    for line in file_name:
+        row = fa('[0-9]', line)
+        row = [int(digit) for digit in row]
+        if len(row) == 9:
+            data.append(row)
+    if len(data) == 9:       
+        return data
+    return False
 
 def run(cls, file_name):
     board = read_file(file_name)
